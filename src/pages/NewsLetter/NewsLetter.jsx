@@ -2,9 +2,9 @@ import React from 'react';
 
 const NewsLetter = () => {
     return (
-        <div>
+        <div className='my-5'>
             <div className="hero h-72" style={{backgroundImage: 'url(https://img.freepik.com/premium-photo/office-supplies-background_1009245-1934.jpg?w=740)'}}>
-  <div className="hero-overlay bg-opacity-70"></div>
+  <div className="hero-overlay bg-opacity-80"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">
       <h1 className="mb-5 text-3xl font-bold">Subscribe To Our Newsletter</h1>
