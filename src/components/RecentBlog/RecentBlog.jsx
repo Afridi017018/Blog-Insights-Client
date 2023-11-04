@@ -11,7 +11,7 @@ const RecentBlog = () => {
                     
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam, iure.</p>
                     <div className="card-actions justify-center">
-                        <button onClick={()=>navigate(`/details`)} className="bg-gray-600 hover:bg-gray-800 px-2 py-1 w-28 rounded text-white text-sm">Details</button>
+                        <button onClick={()=>navigate(`/details`)} className="bg-gray-600 hover:bg-gray-800 px-2 py-1 w-28 rounded text-white text-sm">See Details</button>
                         <button onClick={()=>navigate(`/updateProduct/`)} className="bg-green-800 hover:bg-green-950 px-2 py-1 w-28 rounded text-white text-sm">Add To Wishlist</button>
                     </div>
                 </div>
