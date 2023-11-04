@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeatureBlog = () => {
+const RecentBlog = () => {
     return (
         <div className='px-5 lg:px-0'>
             <div className="card card-side min-h-72 w-full shadow-xl border rounded-none">
@@ -19,4 +19,4 @@ const FeatureBlog = () => {
     );
 };
 
-export default FeatureBlog;
+export default RecentBlog;
