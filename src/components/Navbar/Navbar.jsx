@@ -48,6 +48,16 @@ const NavBar = () => {
         </li>
         <li>
             <NavLink
+                to="/wishlist"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-green-800 font-bold underline underline-offset-4" : ""
+                }
+            >
+                Wishlist
+            </NavLink>
+        </li>
+        <li>
+            <NavLink
                 to="/add-blog"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-green-800 font-bold underline underline-offset-4" : ""
@@ -57,16 +67,7 @@ const NavBar = () => {
             </NavLink>
         </li>
         
-        <li>
-            <NavLink
-                to="/wishlist"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-green-800 font-bold underline underline-offset-4" : ""
-                }
-            >
-                Wishlist
-            </NavLink>
-        </li>
+        
         {
             user === null &&
             <>
