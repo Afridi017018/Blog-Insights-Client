@@ -1,5 +1,6 @@
 import React from 'react';
 import AddComment from '../AddComment/AddComment';
+import Comments from '../Comments/Comments';
 
 const BlogInfo = () => {
     return (
@@ -24,6 +25,9 @@ const BlogInfo = () => {
             </div>
             <div>
                 <AddComment />
+            </div>
+            <div>
+                <Comments />
             </div>
         </div>
     );
