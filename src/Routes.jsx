@@ -4,6 +4,7 @@ import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Home from "./pages/Home/Home";
+import WishList from "./pages/WishList/WishList";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: "/blog-details",
                 element: <BlogDetails />,
+            },
+            {
+                path: "/wishlist",
+                element: <WishList />,
             },
 
         ],

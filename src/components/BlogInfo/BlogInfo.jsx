@@ -6,7 +6,7 @@ const BlogInfo = () => {
     return (
         <div className='my-5 px-5'>
             <div>
-                <img className='w-full h-96 rounded' src="https://img.freepik.com/free-photo/worker-reading-news-with-tablet_1162-83.jpg?w=740&t=st=1699130640~exp=1699131240~hmac=2105ac0da8bb53b0788129846777cbad58cbf2892908a3511ffc9227d6a0817f" alt="" />
+                <img className='w-full h-[26rem] rounded' src="https://img.freepik.com/free-photo/worker-reading-news-with-tablet_1162-83.jpg?w=740&t=st=1699130640~exp=1699131240~hmac=2105ac0da8bb53b0788129846777cbad58cbf2892908a3511ffc9227d6a0817f" alt="" />
             </div>
             <div className='my-2 text-center'>
                 <button className='bg-green-700 px-2 py-1 text-white w-20 rounded'>Update</button>
