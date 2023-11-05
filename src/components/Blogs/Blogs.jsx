@@ -1,9 +1,13 @@
 import React from 'react';
 import Blog from '../Blog/Blog';
+import Search from '../Saerch/Search';
 
 const Blogs = () => {
     return (
         <div>
+            <div>
+                <Search />
+            </div>
             {/* <div>
             <h2 className='text-4xl font-bold text-gray-700 mt-10 text-center'>Our Services</h2>
         </div> */}
