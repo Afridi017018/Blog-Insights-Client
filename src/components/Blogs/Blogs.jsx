@@ -6,7 +6,7 @@ import Search from '../Saerch/Search';
 const Blogs = () => {
     return (
         <div>
-            <div className='flex justify-center items-center gap-5 my-5'>
+            <div className='flex flex-col lg:flex-row justify-center items-center gap-5 my-5'>
                 <Search />
                 <FilterByCategory />
             </div>

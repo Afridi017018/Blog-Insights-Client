@@ -15,8 +15,8 @@ const Blog = () => {
 
 
                     <div className="card-actions justify-center">
-                        <button onClick={() => navigate(`/details/`)} className="bg-gray-600 hover:bg-blue-800 text-white px-2 py-1 rounded font-medium">See Details</button>
-                        <button onClick={() => navigate(`/details/`)} className="bg-green-800 hover:bg-green-95000 text-white px-2 py-1 rounded font-medium">Add To Wishlist</button>
+                        <button onClick={() => navigate(`/blog-details`)} className="bg-gray-600 hover:bg-gray-800 text-white px-2 py-1 rounded font-medium">See Details</button>
+                        <button onClick={() => navigate(`/details/`)} className="bg-green-800 hover:bg-green-950 text-white px-2 py-1 rounded font-medium">Add To Wishlist</button>
                     </div>
                 </div>
             </div>
