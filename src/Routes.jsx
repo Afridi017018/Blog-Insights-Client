@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
+import AddBlog from "./pages/AddBlog/AddBlog";
 import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
             {
                 path: "/featured",
                 element: <Featured />,
+            },
+            {
+                path: "/add-blog",
+                element: <AddBlog />,
             },
 
         ],
