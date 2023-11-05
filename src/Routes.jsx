@@ -3,6 +3,7 @@ import App from "./App";
 import AllBlogs from "./pages/AllBlogs/AllBlogs";
 import BlogDetails from "./pages/BlogDetails/BlogDetails";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import Featured from "./pages/Featured/Featured";
 import Home from "./pages/Home/Home";
 import WishList from "./pages/WishList/WishList";
 
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path: "/wishlist",
                 element: <WishList />,
+            },
+            {
+                path: "/featured",
+                element: <Featured />,
             },
 
         ],
