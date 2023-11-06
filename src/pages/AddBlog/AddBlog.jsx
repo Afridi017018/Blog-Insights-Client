@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import axios from "axios";
 
 const AddBlog = () => {
+
+
+    useEffect(()=>{
+           axios.get('http://localhost:4000',{
+            withCredentials: true,
+          })
+          .then((response)=> console.log(response))
+    },[])
+
+
     const [blogData, setBlogData] = useState({
       title: '',
-      imageUrl: '',
+      image: '',
       category: '',
-      shortDescription: '',
-      longDescription: '',
+      shortDesc: '',
+      longDesc: '',
     });
   
     const handleInputChange = (e) => {
@@ -48,19 +60,19 @@ const AddBlog = () => {
               required
             >
               <option value="" disabled>Select Category</option>
-              <option value="Category">Category 1</option>
-              <option value="Category2">Category 2</option>
-              <option value="Category3">Category 3</option>
+              <option value="bonobhojon">Category 1</option>
+              <option value="picnic">Category 2</option>
+              <option value="party">Category 3</option>
             </select>
           </div>
           </div>
   
           <div className="mb-4">
-            <label htmlFor="imageUrl" className="block text-sm font-bold mb-2">Image URL:</label>
+            <label htmlFor="image" className="block text-sm font-bold mb-2">Image URL:</label>
             <input
               type="text"
-              name="imageUrl"
-              value={blogData.imageUrl}
+              name="image"
+              value={blogData.image}
               placeholder="Image URL"
               onChange={handleInputChange}
               className="w-full border rounded p-2"
@@ -71,10 +83,10 @@ const AddBlog = () => {
           
   
           <div className="mb-4">
-            <label htmlFor="shortDescription" className="block text-sm font-bold mb-2">Short Description:</label>
+            <label htmlFor="shortDesc" className="block text-sm font-bold mb-2">Short Description:</label>
             <textarea
-              name="shortDescription"
-              value={blogData.shortDescription}
+              name="shortDesc"
+              value={blogData.shortDesc}
               placeholder="Short Description"
               onChange={handleInputChange}
               className="w-full border rounded p-2"
@@ -83,10 +95,10 @@ const AddBlog = () => {
           </div>
   
           <div className="mb-4">
-            <label htmlFor="longDescription" className="block text-sm font-bold mb-2">Long Description:</label>
+            <label htmlFor="longDesc" className="block text-sm font-bold mb-2">Long Description:</label>
             <textarea
-              name="longDescription"
-              value={blogData.longDescription}
+              name="longDesc"
+              value={blogData.longDesc}
               placeholder="Long Description"
               onChange={handleInputChange}
               className="w-full border rounded p-2"

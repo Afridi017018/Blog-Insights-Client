@@ -2,17 +2,21 @@ import React, { createContext, useEffect } from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import app from '../../firbase/firebase.config';
 import { useState } from 'react';
+import useAxios from '../../hooks/useAxios';
+
+
 
 export const AuthContext = createContext()
 
 const auth = getAuth(app)
 const googleProvider = new GoogleAuthProvider();
+const axios = useAxios();
 
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-   
+
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
@@ -26,7 +30,7 @@ const AuthProvider = ({ children }) => {
         })
 
         await signOut(auth);
-        
+
     }
 
     const signIn = (email, password) => {
@@ -42,8 +46,18 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
+
+
             setUser(currentUser);
             setLoading(false);
+
+            const loggedUser = { email: currentUser?.email || user?.email };
+            if (currentUser) {
+                axios.post('/access-token', loggedUser)
+                    .then(res => {
+                        console.log('token response', res);
+                    })
+            }
 
         });
         return () => {
