@@ -17,11 +17,13 @@ const {user} = useAuth();
 
     return (
         <div className='px-5 lg:px-0'>
-            <div className="card card-side min-h-72 w-full shadow-xl border rounded-none">
+            <div className="card card-side min-h-72 w-full shadow-xl border rounded-none min-h-[280px]">
                 <img className='min-h-full w-2/4 ' src="https://img.freepik.com/free-photo/one-person-standing-cliff-achieving-success-generated-by-ai_188544-11834.jpg?t=st=1699090908~exp=1699094508~hmac=da0835f35aee05e49cd9a814ab4bfbd33bc11ba83c5e4648a8d29b4bbb0d697a&w=826" alt="Album" />
                 <div className="card-body text-gray-500 capitalize">
-                <p className='text-gray-600 underline underline-offset-2 capitalize'>{element.category}</p>
-                    <h2 className="card-title text-green-700">{element.title}</h2>
+               <div>
+               <p className='text-gray-600 underline underline-offset-2 capitalize'>{element.category}</p>
+                    <h2 className="card-title text-green-700 text-lg my-2">{element.title}</h2>
+               </div>
                     
                     <p>{element.shortDesc}</p>
                     <div className="card-actions justify-center">

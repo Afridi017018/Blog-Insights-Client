@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { useState } from 'react';
 import useAxios from '../../hooks/useAxios';
 import Loading from '../../pages/Loading/Loading';
 import Blog from '../Blog/Blog';
@@ -10,13 +11,16 @@ const Blogs = () => {
 
     const axios = useAxios();
 
+    const [search, setSearch] = useState("");
+    const [categoryFilter, setCategoryFilter] = useState("");
+
     const getAllBlogs= async ()=>{
-          const res = await axios.get(`/get-blogs`);
+          const res = await axios.get(`/get-blogs?search=${search}&category=${categoryFilter}`);
           return res;
         }
         
         const {data, isLoading} = useQuery({
-          queryKey:["allBlogs"],
+          queryKey:["allBlogs", search, categoryFilter],
           queryFn: getAllBlogs,
         })
         
@@ -25,16 +29,15 @@ const Blogs = () => {
         {
             return <Loading />
         }
+      
 
     return (
         <div>
             <div className='flex flex-col lg:flex-row justify-center items-center gap-5 my-5'>
-                <Search />
-                <FilterByCategory />
+                <Search search={search} setSearch={setSearch} />
+                <FilterByCategory categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />
             </div>
-            {/* <div>
-            <h2 className='text-4xl font-bold text-gray-700 mt-10 text-center'>Our Services</h2>
-        </div> */}
+
             <div className='container lg:mx-auto my-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-14 justify-center items-center place-items-center '>
            
            {
