@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
                 element: <AllBlogs />,
             },
             {
-                path: "/blog-details",
+                path: "/blog-details/:id",
                 element: <BlogDetails />,
             },
             {
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AddBlog /></PrivateRoute>,
             },
             {
-                path: "/update-blog",
+                path: "/update-blog/:id",
                 element: <UpdateBlog />,
             },
             {

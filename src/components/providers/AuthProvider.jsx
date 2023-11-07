@@ -54,9 +54,9 @@ const AuthProvider = ({ children }) => {
             const loggedUser = { email: currentUser?.email || user?.email };
             if (currentUser) {
                 axios.post('/access-token', loggedUser)
-                    .then(res => {
-                        console.log('token response', res);
-                    })
+            }
+            else{
+                console.log("logged out!!!")
             }
 
         });
