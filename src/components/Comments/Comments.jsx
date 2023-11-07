@@ -1,14 +1,17 @@
 import React from 'react';
 import Comment from '../Comment/Comment';
 
-const Comments = () => {
+const Comments = ({comments}) => {
+// console.log(comments)
     return (
         <div>
-            <Comment />
-            <Comment />
-            <Comment />
-            <Comment />
-            <Comment />
+            {
+                   comments.length > 0 &&
+                    comments.map((comment)=>(
+                        <Comment key={comment._id} comment={comment} />
+                    ))
+                }
+
         </div>
     );
 };

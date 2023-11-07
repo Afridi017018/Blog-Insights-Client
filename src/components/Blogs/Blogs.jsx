@@ -14,22 +14,21 @@ const Blogs = () => {
     const [search, setSearch] = useState("");
     const [categoryFilter, setCategoryFilter] = useState("");
 
-    const getAllBlogs= async ()=>{
-          const res = await axios.get(`/get-blogs?search=${search}&category=${categoryFilter}`);
-          return res;
-        }
-        
-        const {data, isLoading} = useQuery({
-          queryKey:["allBlogs", search, categoryFilter],
-          queryFn: getAllBlogs,
-        })
-        
-  
-        if(isLoading)
-        {
-            return <Loading />
-        }
-      
+    const getAllBlogs = async () => {
+        const res = await axios.get(`/get-blogs?search=${search}&category=${categoryFilter}`);
+        return res;
+    }
+
+    const { data, isLoading } = useQuery({
+        queryKey: ["allBlogs", search, categoryFilter],
+        queryFn: getAllBlogs,
+    })
+
+
+    if (isLoading) {
+        return <Loading />
+    }
+
 
     return (
         <div>
@@ -39,12 +38,12 @@ const Blogs = () => {
             </div>
 
             <div className='container lg:mx-auto my-10 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-14 justify-center items-center place-items-center '>
-           
-           {
-            data.data.result.map((element)=>(
-                <Blog key={element._id} element={element} />
-            ))
-           }
+
+                {
+                    data.data.result.map((element) => (
+                        <Blog key={element._id} element={element} />
+                    ))
+                }
 
             </div>
         </div>
