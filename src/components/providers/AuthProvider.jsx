@@ -6,6 +6,7 @@ import useAxios from '../../hooks/useAxios';
 
 
 
+
 export const AuthContext = createContext()
 
 const auth = getAuth(app)
@@ -55,9 +56,9 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 axios.post('/access-token', loggedUser)
             }
-            else{
-                console.log("logged out!!!")
-            }
+            // else{
+            //     console.log("logged out!!!")
+            // }
 
         });
         return () => {

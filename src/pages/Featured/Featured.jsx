@@ -2,28 +2,53 @@ import 'ka-table/style.css';
 import React from 'react';
 import { Table } from 'ka-table';
 import { DataType, EditingMode, SortingMode } from 'ka-table/enums';
+import useAxios from '../../hooks/useAxios';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../Loading/Loading';
+import { useState } from 'react';
 
-const dataArray = Array(10)
-  .fill(undefined)
-  .map((_, index) => ({
-    serial: `column:1 row:${index}`,
-    profile: `column:2 row:${index}`,
-    name: `column:3 row:${index}`,
-    title: `column:4 row:${index}`,
-    id: index,
-  }));
+
 
 const Featured = () => {
 
+const axios = useAxios();
+const [fetchLoading,setFetchLoading] = useState(true)
 
+const getFeatured = async ()=>{
+ const res = await axios.get(`/get-feature`);
+ return res;
+}
+
+const {data, isLoading} = useQuery({
+  queryKey: ["featured"],
+  queryFn: getFeatured
+})
+
+
+if(isLoading)
+{
+  return <Loading />
+}
+
+
+
+
+ 
+
+  const dataArray = data.data.result
+  .map((element, index) => ({
+    serial: index+1,
+    name: element.user,
+    title: element.title,
+    id: element._id,
+  }))
 
     return (
         <div className='my-5 px-5'>
             <Table
       columns={[
         { key: 'serial', title: 'Serial', dataType: DataType.String },
-        { key: 'profile', title: 'Profile Picture', dataType: DataType.String },
-        { key: 'name', title: 'Name', dataType: DataType.String },
+        { key: 'name', title: 'Owner', dataType: DataType.String },
         { key: 'title', title: 'Title', dataType: DataType.String },
       ]}
       data={dataArray}

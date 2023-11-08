@@ -172,7 +172,7 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-end">
 
-                    <div className='flex justify-center items-center mr-5'>
+                    <div className='flex justify-center items-center mr-5 hidden'>
                         <label className="swap swap-rotate">
 
                             {/* this hidden checkbox controls the state */}

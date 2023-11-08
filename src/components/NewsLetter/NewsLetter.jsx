@@ -1,6 +1,6 @@
 import React from 'react';
 import Swal from 'sweetalert2';
-
+import {motion} from 'framer-motion'
 const NewsLetter = () => {
 
   const handleSubscribe = (e)=>{
@@ -10,9 +10,13 @@ const NewsLetter = () => {
       icon: "success"
     });
   }
-
+ 
   return (
-    <div className='my-5'>
+    <motion.div
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}>
+      <div className='my-5'>
       <div className="hero h-72" style={{ backgroundImage: 'url(https://img.freepik.com/premium-photo/office-supplies-background_1009245-1934.jpg?w=740)' }}>
         <div className="hero-overlay bg-opacity-80"></div>
         <div className="hero-content text-center text-neutral-content">
@@ -27,6 +31,7 @@ const NewsLetter = () => {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 };
 

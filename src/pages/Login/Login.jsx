@@ -69,7 +69,7 @@ const Login = () => {
             <div className="hero min-h-screen bg-base-100">
                 <div className="hero-content flex-col lg:flex-row-reverse lg:gap-16">
                     <div className="text-center lg:text-left lg:w-1/2">
-                        <img className='h-96 w-full lg:w-[500px]' src="https://img.freepik.com/free-vector/sign-concept-illustration_114360-5267.jpg?w=360&t=st=1697811104~exp=1697811704~hmac=d638e44da89d76e45616158e28b87bb9bdf067d624fd897c083197a02e526e93" alt="" />
+                        <img className='h-96 w-full lg:w-[500px]' src="https://img.freepik.com/free-vector/access-control-system-abstract-concept-vector-illustration-security-system-authorize-entry-login-credentials-electronic-access-password-passphrase-pin-verification-abstract-metaphor_335657-5746.jpg?w=360&t=st=1699448054~exp=1699448654~hmac=9ee8c032f80c1eea7f3d76f47bfb22910ba72e6863df0b0aa6d2676abd30b0ad" alt="" />
                     </div>
                     <div className="card flex-shrink-0 lg:w-1/2 max-w-sm shadow-2xl">
                         <form onSubmit={handleLogin} className="card-body">

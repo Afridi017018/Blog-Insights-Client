@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import {motion} from 'framer-motion'
 import './FeedBack.css'
 
 const FeedBack = () => {
@@ -33,9 +34,13 @@ const FeedBack = () => {
         });
     }
 
-
+    
     return (
-        <div className='my-10'>
+        <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}>
+            <div className='my-10'>
             <div className="hero bg-custom-img">
                 <div className="hero-overlay bg-opacity-70"></div>
                 <div data-aos="zoom-in-up" className="hero-content text-center text-neutral-content">
@@ -67,6 +72,7 @@ const FeedBack = () => {
             </div>
 
         </div>
+        </motion.div>
     );
 };
 

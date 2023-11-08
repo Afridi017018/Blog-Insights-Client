@@ -11,6 +11,7 @@ import Register from "./pages/Register/Register";
 import UpdateBlog from "./pages/UpdateBlog/UpdateBlog";
 import WishList from "./pages/WishList/WishList";
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 export const router = createBrowserRouter([
     {
@@ -48,11 +49,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/login",
-                element: <Login/>,
+                element: <PublicRoute><Login/></PublicRoute>,
             },
             {
                 path: "/register",
-                element: <Register />,
+                element: <PublicRoute><Register/></PublicRoute>,
             },
 
         ],

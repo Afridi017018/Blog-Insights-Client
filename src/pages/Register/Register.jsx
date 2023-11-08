@@ -47,7 +47,7 @@ const Register = () => {
             <div className="hero min-h-screen bg-base-100">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <img className='h-96 w-full lg:w-[500px]' src="https://img.freepik.com/free-vector/isometric-data-protection-concept-with-parent-child-login-window-lock-3d_1284-63713.jpg?w=360&t=st=1697811072~exp=1697811672~hmac=640be640a55bec8829a6856dc3b85648510e81aa1a6e956728ed8e18db2bf711" alt="" />
+                        <img className='h-96 w-full lg:w-[500px]' src="https://img.freepik.com/free-vector/sign-concept-illustration_114360-125.jpg?w=360&t=st=1699447999~exp=1699448599~hmac=87cc235016cf094524058a7587ef3731d3f5218ed642af99709ac38a49342f93" alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleRegister} className="card-body">
