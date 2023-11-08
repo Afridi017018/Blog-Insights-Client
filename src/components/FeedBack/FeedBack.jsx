@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import './FeedBack.css'
 
 const FeedBack = () => {
@@ -10,6 +11,12 @@ const FeedBack = () => {
 
     const handleContact = (e) => {
         e.preventDefault();
+        
+        Swal.fire({
+            title: "Thank You For The Feedback !",
+            icon: "success"
+          });
+
         setFormData({
             name: '',
             email: '',

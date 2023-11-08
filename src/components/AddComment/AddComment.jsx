@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+
 import useAxios from '../../hooks/useAxios';
 
 const AddComment = ({id, mySwitch, setMySwitch, user, blogOwner}) => {
@@ -27,6 +27,9 @@ const navigate = useNavigate();
         <div className='mt-10 mb-3'>
             <div className='my-2'>
                 <h2 className='text-xl font-bold text-gray-600 underline underline-offset-4'>Comments</h2>
+                {user === blogOwner &&
+                    <p className='text-xs text-gray-300 mt-1 italic'>*You cannot comment on your own blog</p>
+                    }
             </div>
             <form onSubmit={handleAddComment} className={`${user === blogOwner ? 'hidden' : "flex" }`}>
                 <textarea

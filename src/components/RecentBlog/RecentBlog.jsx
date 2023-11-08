@@ -10,6 +10,11 @@ const axios = useAxios();
 const {user} = useAuth();
 
     const handleAddToWishlist = async () => {
+        if(!user)
+        {
+            navigate('/login')
+            return;
+        }
         const res = await axios.post(`/add-to-wishlist`, { blogId: element._id, user: user?.email })
         toast.dismiss();
         toast.success(res.data.message);
@@ -17,8 +22,8 @@ const {user} = useAuth();
 
     return (
         <div className='px-5 lg:px-0'>
-            <div className="card card-side min-h-72 w-full shadow-xl border rounded-none min-h-[280px]">
-                <img className='min-h-full w-2/4 ' src="https://img.freepik.com/free-photo/one-person-standing-cliff-achieving-success-generated-by-ai_188544-11834.jpg?t=st=1699090908~exp=1699094508~hmac=da0835f35aee05e49cd9a814ab4bfbd33bc11ba83c5e4648a8d29b4bbb0d697a&w=826" alt="Album" />
+            <div className="card card-side w-full shadow-xl border rounded-none min-h-[300px]">
+                <img className='min-h-full w-2/4 ' src={element.image} alt="Album" />
                 <div className="card-body text-gray-500 capitalize">
                <div>
                <p className='text-gray-600 underline underline-offset-2 capitalize'>{element.category}</p>

@@ -152,7 +152,7 @@ const NavBar = () => {
                     </div>
                     <div onClick={() => navigate("/")} className="text-xl font-bold flex cursor-pointer">
                         <div>
-                            <img className='h-10 w-28' src="/techlogo.png" alt="" />
+                            <img className='h-14 w-44' src="/bloginsightslogo.png" alt="" />
                         </div>
                     </div>
                 </div>

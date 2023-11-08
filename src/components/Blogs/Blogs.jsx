@@ -22,6 +22,8 @@ const Blogs = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["allBlogs", search, categoryFilter],
         queryFn: getAllBlogs,
+    
+       
     })
 
 

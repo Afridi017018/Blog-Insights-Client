@@ -9,7 +9,7 @@ const Banner = () => {
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
                         <div className='flex justify-center'>
-                            <img className='h-16 w-52' src="/techlogo.png" alt="" />
+                            <img className='h-20 w-52' src="/bloginsightslogo.png" alt="" />
                         </div>
                         <h1 className="mb-5 text-4xl font-bold">Your Portal to the World of Blogging</h1>
                         <p className="mb-5">Embark on a journey of exploration across diverse topics, gaining inspiration and igniting your curiosity. Join us in uncovering hidden gems and sharing the excitement of discovery in the ever-evolving world of knowledge and ideas.</p>

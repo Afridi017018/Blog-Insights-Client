@@ -38,7 +38,7 @@ const axios = useAxios();
       e.preventDefault();
       await axios.post(`/add-blog`, {...blogData, user: user.email })
       toast.dismiss();
-      toast.success("Product Added Successfully");
+      toast.success("Blog Added Successfully");
       setBlogData({
         title: '',
         image: '',

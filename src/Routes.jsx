@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/wishlist",
-                element: <WishList />,
+                element: <PrivateRoute><WishList /></PrivateRoute>,
             },
             {
                 path: "/featured",
@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/update-blog/:id",
-                element: <UpdateBlog />,
+                element: <PrivateRoute><UpdateBlog /></PrivateRoute>,
             },
             {
                 path: "/login",

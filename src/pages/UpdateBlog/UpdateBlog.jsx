@@ -37,7 +37,11 @@ const UpdateBlog = () => {
 
   const { data, isLoading } = useQuery({
     queryKey: ["singleBlog"],
-    queryFn: getSingleBlog
+    queryFn: getSingleBlog,
+    refetchOnWindowFocus:false,
+    refetchOnMount:true,
+    cacheTime: 10000,
+    staleTimeout: 10000,
   })
 
   if (isLoading)
@@ -57,7 +61,7 @@ const UpdateBlog = () => {
   
     await axios.put(`/update-blog`, {...blogData, _id: data.data.result._id})
     toast.dismiss();
-    toast.success("Product Updated Successfully");
+    toast.success("Blog Updated Successfully");
 
   };
 

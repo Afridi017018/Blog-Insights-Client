@@ -10,6 +10,11 @@ const Blog = ({ element }) => {
     const navigate = useNavigate();
 
     const handleAddToWishlist = async () => {
+        if(!user)
+        {
+            navigate('/login')
+            return;
+        }
         const res = await axios.post(`/add-to-wishlist`, { blogId: element._id, user: user?.email })
         toast.dismiss();
         toast.success(res.data.message);
@@ -19,7 +24,7 @@ const Blog = ({ element }) => {
         <div>
 
             <div className="card rounded-md card-compact w-80 lg:w-96 drop-shadow-2xl bg-base-100">
-                <figure><img className='w-full h-72' src="https://img.freepik.com/free-photo/worker-reading-news-with-tablet_1162-83.jpg?w=740&t=st=1699130640~exp=1699131240~hmac=2105ac0da8bb53b0788129846777cbad58cbf2892908a3511ffc9227d6a0817f" alt="" /></figure>
+                <figure><img className='w-full h-72' src={element.image} alt="" /></figure>
                 <div className="card-body min-h-[215px]">
                     <div>
                         <p className='text-gray-600 underline underline-offset-2 capitalize'>{element.category}</p>

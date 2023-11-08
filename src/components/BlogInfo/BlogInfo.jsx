@@ -34,10 +34,12 @@ const BlogInfo = () => {
     return (
         <div className='my-5 px-5'>
             <div>
-                <img className='w-full h-[26rem] rounded' src="https://img.freepik.com/free-photo/worker-reading-news-with-tablet_1162-83.jpg?w=740&t=st=1699130640~exp=1699131240~hmac=2105ac0da8bb53b0788129846777cbad58cbf2892908a3511ffc9227d6a0817f" alt="" />
+                <img className='w-full h-[30rem] rounded' src={data.data.result.image} alt="" />
             </div>
             <div className='my-2 text-center'>
-                <button onClick={() => navigate(`/update-blog/${data.data.result._id}`)} className='bg-green-700 px-2 py-1 text-white w-20 rounded'>Update</button>
+                {user?.email &&
+                    <button onClick={() => navigate(`/update-blog/${data.data.result._id}`)} className={`bg-green-700 px-2 py-1 text-white w-20 rounded ${user.email !== data.data.result.user && "hidden"}`}>Update</button>
+                }
             </div>
             <div className='my-3'>
                 <p className='text-gray-600 underline underline-offset-2 font-bold capitalize'>{data.data.result.category}</p>
@@ -62,7 +64,7 @@ const BlogInfo = () => {
 
                         <Comments comments={data?.data.comments} />
                         :
-                        <p className='text-gray-500 italic'>No comment has been made yet !</p>
+                        <p className='text-gray-600 italic'>No comment has been made yet !</p>
 
                 }
 
