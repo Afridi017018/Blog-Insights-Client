@@ -68,7 +68,9 @@ const AuthProvider = ({ children }) => {
 
     const logOut = async () => {
         setLoading(true);
+        await axios.post(`/logout`,{user:user.email});
         await signOut(auth)
+        
     }
 
     const authInfo = {
