@@ -10,7 +10,7 @@ import Comments from '../Comments/Comments';
 
 const BlogInfo = () => {
     const axios = useAxios();
-    const { user, loading } = useAuth();
+    const { user, loading, theme } = useAuth();
     const { id } = useParams();
     const navigate = useNavigate();
     const [mySwitch, setMySwitch] = useState(false)
@@ -42,16 +42,16 @@ const BlogInfo = () => {
                 }
             </div>
             <div className='my-3'>
-                <p className='text-gray-600 underline underline-offset-2 font-bold capitalize'>{data.data.result.category}</p>
+                <p className={`${theme ? 'text-white' : 'text-gray-600'} underline underline-offset-2 font-bold capitalize`}>{data.data.result.category}</p>
             </div>
             <div className='my-3'>
-                <h2 className='text-2xl font-bold'>{data?.data.result.title}</h2>
+                <h2 className={`${theme && 'text-white'} text-2xl font-bold`}>{data?.data.result.title}</h2>
             </div>
             <div>
-                <p className='italic font-bold text-gray-600 text-lg my-2'>{data.data.result.shortDesc}</p>
+                <p className={`italic font-bold ${theme ? 'text-white' : 'text-gray-600'} text-lg my-2`}>{data.data.result.shortDesc}</p>
             </div>
             <div className='my-3'>
-                <p className='text-gray-600 text-lg'>{data?.data.result.longDesc}</p>
+                <p className={`${theme ? 'text-white' : 'text-gray-600'} text-lg`}>{data?.data.result.longDesc}</p>
             </div>
             <div>
                 {

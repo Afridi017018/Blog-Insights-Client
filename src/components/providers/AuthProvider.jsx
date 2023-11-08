@@ -14,7 +14,7 @@ const googleProvider = new GoogleAuthProvider();
 const axios = useAxios();
 
 const AuthProvider = ({ children }) => {
-
+    const [theme, setTheme] = useState(false)
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -81,7 +81,9 @@ const AuthProvider = ({ children }) => {
         user,
         logOut,
         loading,
-        setLoading
+        setLoading,
+        theme,
+        setTheme
 
     }
 

@@ -6,9 +6,8 @@ import useAuth from '../../hooks/useAuth';
 
 const NavBar = () => {
 
-    const { user, logOut } = useAuth();
+    const { user, logOut, theme, setTheme } = useAuth();
 
-    const theme = false
     const navigate = useNavigate()
 
     const handleLogOut = async () => {
@@ -135,10 +134,8 @@ const NavBar = () => {
 
 
 
-
-
     return (
-        <div className={`bg-base-200 w-full`}>
+        <div className={`${theme ? 'bg-base-300' : "bg-green-50"} w-full`}>
             <div className="navbar container mx-auto h-24">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -161,18 +158,11 @@ const NavBar = () => {
                         {links}
 
                     </ul>
-                    {/* <div onClick={()=>navigate("/")} className="text-xl font-bold lg:hidden flex cursor-pointer">
-                        <div className='bg-green-700 text-white text-center px-2 py-1 rounded-l-md'>
-                            Event
-                        </div>
-                        <div className='bg-red-700 text-white text-center px-2 py-1 rounded-r-md'>
-                            Station
-                        </div>
-                    </div> */}
+                 
                 </div>
                 <div className="navbar-end">
 
-                    <div className='flex justify-center items-center mr-5 hidden'>
+                    <div className='flex justify-center items-center mr-5'>
                         <label className="swap swap-rotate">
 
                             {/* this hidden checkbox controls the state */}
