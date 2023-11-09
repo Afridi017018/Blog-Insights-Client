@@ -1,63 +1,82 @@
-import 'ka-table/style.css';
 import React from 'react';
-import { Table } from 'ka-table';
-import { DataType, EditingMode, SortingMode } from 'ka-table/enums';
 import useAxios from '../../hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../Loading/Loading';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
 const Featured = () => {
 
-const axios = useAxios();
-const [fetchLoading,setFetchLoading] = useState(true)
+  const axios = useAxios();
+  const navigate = useNavigate();
+  const getFeatured = async () => {
+    const res = await axios.get(`/get-feature`);
+    return res;
+  }
 
-const getFeatured = async ()=>{
- const res = await axios.get(`/get-feature`);
- return res;
+  const { data, isLoading } = useQuery({
+    queryKey: ["featured"],
+    queryFn: getFeatured
+  })
+
+
+  if (isLoading) {
+    return <Loading />
+  }
+
+  console.log(data)
+
+  return (
+    <div className='my-10 px-5'>
+      <div className="overflow-x-auto">
+        <table className="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Blog Owner</th>
+              <th>Title</th>
+              <th>See Details</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {
+              data.data.result.map((element, index) => (
+
+                <tr key={element._id}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <div className="flex items-center space-x-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                          <img src={element.userPhoto} alt="Avatar Tailwind CSS Component" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{element.userName}</div>
+
+                      </div>
+                    </div>
+                  </td>
+                  <td>{element.title}</td>
+                  <th>
+                    <button onClick={() => navigate(`/blog-details/${element._id}`)} className="btn btn-ghost btn-xs">details</button>
+                  </th>
+                </tr>
+
+              ))
+            }
+
+          </tbody>
+
+
+        </table>
+      </div>
+    </div>
+  )
+
 }
-
-const {data, isLoading} = useQuery({
-  queryKey: ["featured"],
-  queryFn: getFeatured
-})
-
-
-if(isLoading)
-{
-  return <Loading />
-}
-
-
-
-
- 
-
-  const dataArray = data.data.result
-  .map((element, index) => ({
-    serial: index+1,
-    name: element.user,
-    title: element.title,
-    id: element._id,
-  }))
-
-    return (
-        <div className='my-5 px-5'>
-            <Table
-      columns={[
-        { key: 'serial', title: 'Serial', dataType: DataType.String },
-        { key: 'name', title: 'Owner', dataType: DataType.String },
-        { key: 'title', title: 'Title', dataType: DataType.String },
-      ]}
-      data={dataArray}
-      editingMode=""
-      rowKeyField={'id'}
-      sortingMode={SortingMode.Single}
-    />
-        </div>
-    );
-};
 
 export default Featured;
