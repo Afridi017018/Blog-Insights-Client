@@ -1,6 +1,5 @@
 import React from 'react';
 import Swal from 'sweetalert2';
-import { motion } from 'framer-motion'
 import { useState } from 'react';
 const NewsLetter = () => {
 
@@ -17,10 +16,7 @@ const NewsLetter = () => {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}>
+    <div data-aos="fade-up">
       <div className='my-5'>
         <div className="hero h-72" style={{ backgroundImage: 'url(https://img.freepik.com/premium-photo/office-supplies-background_1009245-1934.jpg?w=740)' }}>
           <div className="hero-overlay bg-opacity-80"></div>
@@ -36,7 +32,7 @@ const NewsLetter = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

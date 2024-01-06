@@ -6,6 +6,15 @@ import Footer from "./components/Footer/Footer"
 import NavBar from "./components/Navbar/Navbar"
 import useAuth from "./hooks/useAuth";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+
+AOS.init({
+  offset: 200,
+  duration: 1200,
+  delay: 100,
+});
+
 function App() {
 
  const {theme, setTheme} = useAuth();

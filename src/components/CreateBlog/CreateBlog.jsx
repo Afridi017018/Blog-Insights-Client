@@ -1,14 +1,10 @@
 import React from 'react';
-import {motion} from 'framer-motion'
 import { useNavigate } from 'react-router-dom';
 
 const CreateBlog = () => {
   const navigate = useNavigate();
     return (
-        <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}>
+        <div data-aos="fade-up">
           <div className='my-5'>
       <div className="hero h-72" style={{ backgroundImage: 'url(https://img.freepik.com/premium-photo/office-supplies-background_1009245-1948.jpg?w=826)' }}>
         <div className="hero-overlay bg-opacity-70"></div>
@@ -23,7 +19,7 @@ const CreateBlog = () => {
         </div>
       </div>
     </div>
-        </motion.div>
+        </div>
     );
 };
 
